@@ -22,6 +22,11 @@
         display: block;
     }
 
+    .scrolled {
+        background-color: red;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
 
     &__navbar {
         display: flex;
@@ -101,7 +106,7 @@
     }
 }
 
-@media (max-width:900px) {
+@media (max-width:950px) {
     .header {
         &__list {
             position: fixed;

@@ -22,3 +22,13 @@ button {
   margin: 0 auto;
   max-width: 1440px;
 }
+
+.box {
+  width: 24px;
+  height: 80px;
+  border-radius: 10px;
+  background: red;
+  margin: 40px auto;
+
+  display: block;
+}

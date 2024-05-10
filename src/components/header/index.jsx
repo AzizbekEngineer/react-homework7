@@ -10,6 +10,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const [value, setValue] = useState("");
   const [data, setData] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (!value.trim()) return;
@@ -18,9 +19,21 @@ const Header = () => {
       .then((res) => setData(res.data.products))
       .then((err) => console.log(err));
   }, [value]);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
 
   return (
-    <header className="header">
+    <header className={scrolled ? "header scrolled" : "header"}>
       <div
         onClick={() => setShow(false)}
         className={show ? "header__overlay show__overlay" : "header__overlay"}
